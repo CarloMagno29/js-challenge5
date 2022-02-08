@@ -7,10 +7,11 @@ las 3 criptos tiene mayor reserva de dinero tomando como referencia la
 propiedad del valor con dolar.
 */
 
+35465
 const Wallet = {
     criptos: [],
     status: true,
-    user: ""
+    user: "Carlol"
 };
 
 let BTC = {
@@ -36,3 +37,37 @@ let USDT = {
     current: "$1.00",
     stableCoin: true
 };
+
+
+const nWallet = {...Wallet, criptos:[USDT, BTC, ETH]};
+console.log(nWallet)
+console.log("=".repeat(50));
+
+let stableC = nWallet.criptos.filter(s => s.stableCoin == true);
+console.log(`El total de StableCoins es ${stableC.length}`);
+
+let noStableC = nWallet.criptos.filter(s => s.stableCoin == false);
+console.log(`El total de NO StableCoins es ${noStableC.length}`);
+
+
+console.log("=".repeat(50));
+let encontrarStable = nWallet.criptos.map(criptos => {
+    if (criptos.stableCoin === true){
+        console.log(`${criptos.name.toUpperCase()} es un StableCoin`);
+        console.log("=".repeat(50));
+    }else{
+        console.log(`${criptos.name.toUpperCase()} no es un StableCoin`);    
+        console.log("=".repeat(50));
+        return;
+    }
+});
+
+let mayorReserva = nWallet.criptos.map(criptos => {
+    if( criptos.current === "$42,750.52"){
+        console.log(`${criptos.name.toUpperCase()} tiene la mayor reserva de $`);
+        console.log("=".repeat(50));
+        return;
+    }
+});
+
+

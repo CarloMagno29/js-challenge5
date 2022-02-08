@@ -18,5 +18,13 @@ let Can = {
 };
 
 let Perro = {
-   nombre:"tornado",
+    nombre:"tornado",
+    __proto__: Can
 }; 
+
+
+console.log (Perro);
+
+console.log(Perro.__proto__);
+
+console.log(Perro.__proto__.__proto__);

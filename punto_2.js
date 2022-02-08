@@ -14,3 +14,32 @@ https://github.com/axios/axios
 
 npm install axios
 */
+const axios = require("axios");
+
+// Promesas Then y cacth
+function getUsers1(){  
+    axios.get("https://jsonplaceholder.typicode.com/users")
+    .then(function(response){
+        console.log(response.data);
+
+    }).catch(function(error){
+        console.log(error);
+    })
+}
+
+getUsers1();
+
+// Diseño aync / await
+
+async function getUsers2(){
+    try{
+        const users = await axios.get("https://jsonplaceholder.typicode.com/users");
+        console.log(users.data)
+    
+    }catch(error){
+        console.log(error);
+    }
+
+}
+
+getUsers1();
